@@ -13,6 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Test OpenOrbis Toolchain
+      - name: Inspect OpenOrbis
         run: |
-          docker run --rm openorbisofficial/toolchain:v0.5.1 bash -c "echo OPENORBIS_WORKS"
+          docker run --rm openorbisofficial/toolchain:v0.5.1 bash -c '
+            echo "=== TOOLCHAIN LOCATION ==="
+            echo "$OO_PS4_TOOLCHAIN"
+            echo "=== HELLO WORLD SAMPLE ==="
+            find / -path "*/samples/hello_world/Makefile" 2>/dev/null
+          '
