@@ -13,5 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check Docker
-        run: docker --version
+      - name: Test OpenOrbis Toolchain
+        run: |
+          docker run --rm openorbisofficial/toolchain:v0.5.1 bash -c "echo OPENORBIS_WORKS"
